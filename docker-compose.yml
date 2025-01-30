@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  socialmediabot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: socialmediabot
+    environment:
+      - DOTNET_ENVIRONMENT=Production
+    volumes:
+      - ./logs:/app/logs
+      - ./appsettings.json:/app/appsettings.json:ro
+    restart: unless-stopped
